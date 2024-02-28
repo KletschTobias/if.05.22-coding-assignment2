@@ -15,10 +15,10 @@ female(eve).
 female(lisa).
 female(anne).
 
-father(X) :- male(X), parent(X, Y).
-mother(X) :- female(X), parent(X, Y).
+father(Father, Child) :- male(Father), parent(Father, Child).
+mother(Mother, Child) :- female(Mother), parent(Mother, Child).
 
-grandparent(X) :- parent(X, Y), parent(Y, Z).
+grandparent(Grandparent, Grandchild) :- parent(Grandparent, Parent), parent(Parent, Grandchild).
 
-grandfather(X) :- male(X), grandparent(X).
-grandmother(X) :- female(X), grandparent(X).
+grandfather(Grandfather, Grandchild) :- male(Grandfather), grandparent(Grandfather, Grandchild).
+grandmother(Grandmother, Grandchild) :- female(Grandmother), grandparent(Grandmother, Grandchild).
